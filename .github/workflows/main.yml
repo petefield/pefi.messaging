@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: read
       packages: write
@@ -32,7 +32,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Pack NuGet packages
-      run: dotnet pack --configuration Release --no-build --output ./nupkgs
+      run: dotnet pack ./src/pefi.messaging.rabbit/pefi.messaging.rabbit.csproj --configuration Release --no-build --output ./nupkgs
 
     - name: Publish to GitHub Packages
       run: |
