@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <PackageId>pefi.messaging.rabbit</PackageId>
+	  <Authors>petefield</Authors>
+	  <RepositoryUrl>https://https://github.com/petefield/pefi.messaging</RepositoryUrl>
   </PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="RabbitMQ.Client" Version="7.0.0" />
