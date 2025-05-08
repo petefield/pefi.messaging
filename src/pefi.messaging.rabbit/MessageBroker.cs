@@ -6,21 +6,13 @@ public class MessageBroker : IMessageBroker
 {
     private readonly IConnection? _connection;
 
-    private MessageBroker(){ }
-
-    private MessageBroker(IConnection connection)
-    {
-        _connection = connection;
-    }
- 
-    public static async Task<MessageBroker> Create(string host, string username, string password)
+    public MessageBroker(string host, string username, string password)
     {
         var factory = new ConnectionFactory() { HostName = host, UserName = username, Password = password };
-        var connection = await factory.CreateConnectionAsync();
-        var messageBroker = new MessageBroker(connection);
-        return messageBroker;
-    }
 
+        _connection = factory.CreateConnectionAsync().Result;
+    }
+ 
     public async Task<ITopic> CreateTopic(string name)
     {
         var channel = await _connection!.CreateChannelAsync();

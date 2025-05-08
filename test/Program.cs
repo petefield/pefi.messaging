@@ -1,4 +1,4 @@
-﻿using var messageBroker = await pefi.Rabbit.MessageBroker.Create("192.168.0.5", "username", "password");
+﻿using var messageBroker = new pefi.Rabbit.MessageBroker("192.168.0.5", "username", "password");
 using var topic = await messageBroker.CreateTopic("Events");
 
 if(args.Length ==0)
