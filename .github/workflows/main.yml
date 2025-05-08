@@ -38,7 +38,7 @@ jobs:
         echo "VERSION=$VERSION" >> $GITHUB_ENV
 
     - name: Pack NuGet packages
-      run: dotnet pack ./src/pefi.messaging.rabbit/pefi.messaging.rabbit.csproj --configuration Release --no-build --output ./nupkgs /p:PackageVersion=${{ env.VERSION }}
+      run: dotnet pack --configuration Release --no-build --output ./nupkgs /p:PackageVersion=${{ env.VERSION }}
 
     - name: Publish to GitHub Packages
       run: |
